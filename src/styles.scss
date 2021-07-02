@@ -1,1 +1,8 @@
-/* You can add global styles to this file, and also import other style files */
+@import "../node_modules/bootstrap/scss/bootstrap";
+.main-container {
+    &--1400 {
+        width: 100%;
+        margin: 0 auto;
+        max-width: 1400px;
+    }
+}

@@ -1,0 +1,19 @@
+<div class="row movie-list__container">
+    <div class="col-lg-3 movie-list__item" *ngFor="let movie of movies">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="movie-list__headling">{{movie.title}}</h5>
+                <span class="movie-list__release-date">{{movie.release_date * 1000 | date}}</span>
+                <div class="movie-list__poster" style="background-image: url({{movie.poster}});"></div>
+                <div class="movie-list__description">
+                    {{movie.overview}}
+                </div>
+                <div class="movie-list__categories">
+                    <span class="movie-list__category" *ngFor="let category of movie.genres">
+                        {{category}}
+                    </span>
+                </div>
+            </div>
+          </div>
+    </div>
+</div>
