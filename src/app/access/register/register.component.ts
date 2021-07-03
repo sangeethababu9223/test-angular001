@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {user} from '../user';
-
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -8,13 +7,14 @@ import {user} from '../user';
 })
 
 export class RegisterComponent implements OnInit {
-  userItem = new user('','','','','','','');
+  model = new user('','','','','','','');
   register = {
     onSubmit : function(contactForm:any){
       console.log(contactForm.value);
     }
   };
-  constructor() { }
+  constructor() { 
+  }
   ngOnInit(): void {
   }
 }

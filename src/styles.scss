@@ -6,3 +6,8 @@
         max-width: 1400px;
     }
 }
+.alert {
+    &--error {
+        color: red;
+    }
+}
