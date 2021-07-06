@@ -1,4 +1,4 @@
-<form #registerForm="ngForm" (ngSubmit)=register.onSubmit(registerForm)>
+<form #registerForm="ngForm" (ngSubmit)=onSubmit(registerForm)>
     <fieldset>
         <div class="form-group">
             <label>First Name</label>
@@ -35,12 +35,25 @@
         </div>
         <div class="form-group">
             <label>Password</label>
-            <input class="form-control" type="password" name="password" [(ngModel)]="model.password">
+            <input class="form-control" type="password" name="password" [(ngModel)]="model.password" #password="ngModel" minlength="4" required>
         </div>
         <div class="form-group">
             <label>Confirm password</label>
-            <input class="form-control" type="password" name="cpassword" [(ngModel)]="model.cpassword">
+            <input class="form-control" type="password" name="cpassword" [(ngModel)]="model.cpassword"  #cpassword="ngModel" minlength="4" required>
         </div>
+        <div *ngIf="(cpassword.invalid && (cpassword.dirty || cpassword.touched)) || cpassword!=password ; else goodWork"
+            class="alert alert--error">
+            <div *ngIf="cpassword.errors?.required">
+                Password is required.
+            </div>
+            <div *ngIf="cpassword.errors?.minlength">
+                Password must be at least 4 characters long.
+            </div>
+        </div>
+        <ng-template #goodWork>
+            <div>Good work!</div>
+        </ng-template>
+            
     </fieldset>
     <div class="form-group register-form__button">
         <button class="btn btn-danger btn-block">Sign Up</button>
